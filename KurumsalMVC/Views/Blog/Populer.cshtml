@@ -1,0 +1,26 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Blog>
+
+
+
+<div class="popular-post">
+
+
+
+    @foreach (var x in Model)
+    {
+        <div class="item">
+            <div class="post-thumb"><a href="/Makale/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID"><img src="~/uploads/makale/@x.Resim" alt=""></a></div>
+            <div>
+                <h4>
+                    <a href="/Makale/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID">@x.Baslik.ToString()</a>
+
+
+
+
+                </h4>
+            </div>
+            <div class="post-info">@x.Tarih.Value.ToString("dd/MM/yyyy")</div>
+        </div>
+    }
+</div>

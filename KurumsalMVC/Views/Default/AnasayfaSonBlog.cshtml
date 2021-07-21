@@ -1,0 +1,52 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Blog>
+
+
+
+<section class="news-section padd-1 bg-1">
+    <div class="container">
+        <!--Sec Title-->
+        <div class="sec-title center">
+            <h2>Son <span>Yazılar</span></h2>
+        </div>
+        <div class="row">
+            @foreach (var x in Model)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <!--News Style One-->
+                    <div class="news-style-one">
+                        <div class="inner-box">
+                            <div class="image">
+                                <img src="/uploads/makale/@x.Resim" height="291" width="182"    />
+                                <div class="post-time">
+
+                                    @x.Tarih.Value.ToString("dd/MM/yyyy")
+
+
+                                </div>
+                            </div>
+                            <div class="lower-content">
+                                <h3><a href="Makale/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID">@x.Baslik</a></h3>
+                                <div class="text">
+                                    @if (x.Yazi.ToString().Length < 20)
+                                    {
+                                        @MvcHtmlString.Create(x.Yazi.ToString())
+                                    }
+                                    else
+                                    {
+                                        @MvcHtmlString.Create(x.Yazi.Substring(0, 50) + "...")
+
+                                    }
+                                </div>
+                                <div class="link-btn2 center">
+                                    <a href="Makale/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID" class="btn-style-two">Devamını Oku</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

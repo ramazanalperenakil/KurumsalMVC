@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KurumsalMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bilgi">
+    <Key>
+      <PropertyRef Name="BilgiID" />
+    </Key>
+    <Property Name="BilgiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="eposta" Type="nvarchar(max)" />
+    <Property Name="CPR" Type="nvarchar(max)" />
+    <Property Name="face" Type="nvarchar" MaxLength="50" />
+    <Property Name="twit" Type="nvarchar" MaxLength="50" />
+    <Property Name="linkedin" Type="nvarchar" MaxLength="50" />
+    <Property Name="skyp" Type="nvarchar" MaxLength="50" />
+    <Property Name="adres" Type="nvarchar(max)" />
+    <Property Name="saat" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteBaslik" Type="nvarchar(max)" />
+    <Property Name="SiteAnahtar" Type="nvarchar(max)" />
+    <Property Name="SiteAciklama" Type="nvarchar(max)" />
+    <Property Name="SİteLogo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar(max)" />
+    <Property Name="Yazi" Type="nvarchar(max)" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Resim" Type="nvarchar(max)" />
+    <Property Name="Yazar" Type="int" />
+    <Property Name="OkumaSayisi" Type="int" />
+    <Property Name="durum" Type="int" />
+  </EntityType>
+  <EntityType Name="Hakkimizda">
+    <Key>
+      <PropertyRef Name="HakkimizdaID" />
+    </Key>
+    <Property Name="HakkimizdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yazi" Type="nvarchar(max)" />
+    <Property Name="Resim" Type="nvarchar(max)" />
+    <Property Name="Baslik" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Hizmetler">
+    <Key>
+      <PropertyRef Name="HizmetID" />
+    </Key>
+    <Property Name="HizmetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HizmetAdi" Type="nvarchar(max)" />
+    <Property Name="HizmetResim" Type="nvarchar(max)" />
+    <Property Name="Yazi" Type="nvarchar(max)" />
+    <Property Name="durum" Type="int" />
+  </EntityType>
+  <EntityType Name="iletisim">
+    <Key>
+      <PropertyRef Name="iletisimID" />
+    </Key>
+    <Property Name="iletisimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HaritaURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Eposta" Type="nvarchar(max)" />
+    <Property Name="sifre" Type="nvarchar(max)" />
+    <Property Name="kod" Type="nvarchar" MaxLength="50" />
+    <Property Name="foto" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProjeKategoriler">
+    <Key>
+      <PropertyRef Name="ProjeKatID" />
+    </Key>
+    <Property Name="ProjeKatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KategoriAd" Type="nvarchar(max)" />
+    <Property Name="KategoriURL" Type="nvarchar(max)" />
+    <Property Name="YaziSayisi" Type="int" />
+  </EntityType>
+  <EntityType Name="Projeler">
+    <Key>
+      <PropertyRef Name="ProjeID" />
+    </Key>
+    <Property Name="ProjeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar(max)" />
+    <Property Name="Yazi" Type="nvarchar(max)" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Resim" Type="nvarchar(max)" />
+    <Property Name="KategoriID" Type="int" />
+    <Property Name="Durum" Type="int" />
+  </EntityType>
+  <EntityType Name="ProjeResimler">
+    <Key>
+      <PropertyRef Name="ResimID" />
+    </Key>
+    <Property Name="ResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResimURL" Type="nvarchar(max)" />
+    <Property Name="ProjeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Resim" Type="nvarchar(max)" />
+    <Property Name="Hedef" Type="nvarchar(max)" />
+    <Property Name="Durum" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Blog_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+    <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="Yazar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projeler_ProjeKategoriler">
+    <End Role="ProjeKategoriler" Type="Self.ProjeKategoriler" Multiplicity="0..1" />
+    <End Role="Projeler" Type="Self.Projeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjeKategoriler">
+        <PropertyRef Name="ProjeKatID" />
+      </Principal>
+      <Dependent Role="Projeler">
+        <PropertyRef Name="KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjeResimler_Projeler">
+    <End Role="Projeler" Type="Self.Projeler" Multiplicity="0..1" />
+    <End Role="ProjeResimler" Type="Self.ProjeResimler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeler">
+        <PropertyRef Name="ProjeID" />
+      </Principal>
+      <Dependent Role="ProjeResimler">
+        <PropertyRef Name="ProjeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KurumsalMVCModelStoreContainer">
+    <EntitySet Name="Bilgi" EntityType="Self.Bilgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hakkimizda" EntityType="Self.Hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hizmetler" EntityType="Self.Hizmetler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iletisim" EntityType="Self.iletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjeKategoriler" EntityType="Self.ProjeKategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projeler" EntityType="Self.Projeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjeResimler" EntityType="Self.ProjeResimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Blog_Kullanicilar" Association="Self.FK_Blog_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Blog" EntitySet="Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projeler_ProjeKategoriler" Association="Self.FK_Projeler_ProjeKategoriler">
+      <End Role="ProjeKategoriler" EntitySet="ProjeKategoriler" />
+      <End Role="Projeler" EntitySet="Projeler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjeResimler_Projeler" Association="Self.FK_ProjeResimler_Projeler">
+      <End Role="Projeler" EntitySet="Projeler" />
+      <End Role="ProjeResimler" EntitySet="ProjeResimler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,134 @@
+﻿@using KurumsalMVC.Models.Entitiy;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@Html.Action("SiteBilgi", "Default")
+
+@if (ViewBag.Success == true)
+{
+    <script> swal("İşlem Başarılı!", "Mesajınız İletildi", "success"); @*swal({icon: "success",title: "Kayıt Başarılı",})}*@ </script>}
+@if (ViewBag.er == true)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+
+
+
+<section class="contact_us">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="sec-title">
+                    <h2>Bizimle İletişime Geçin</h2>
+                </div>
+                <div class="default-form-area">
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "", action = "" }))
+                    {
+
+                        <div class="row clearfix">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <div class="form-group">
+                                    <input type="text" name="Name" class="form-control" value="" placeholder="Adınız ve Soyadınız *" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="email" name="Email" class="form-control required email" value="" placeholder="Eposta Adresiniz *" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Phone" class="form-control" value="" placeholder="Telefonunuz">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Subject" class="form-control" value="" placeholder="Konu">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <textarea name="Message" class="form-control textarea required" placeholder="Mesajınız...."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                    <button class="btn-style-one" type="submit" data-loading-text="İşlem Yapılıyor...">Göndr</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-8 col-xs-12">
+                <div class="sec-title">
+                    <h2>İletişim Bilgilerimiz</h2>
+                </div>
+
+                <br>
+                @{
+                    KurumsalMVCEntities db = new KurumsalMVCEntities();
+                    foreach (var item in db.Bilgi.ToList())
+                    {
+                        <div class="default-cinfo" >
+
+                            <div class="acc-content collapsed">
+                                <ul class="contact-infos">
+                                    <li>
+                                        <div class="icon_box">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div><!-- /.icon-box -->
+                                        <div class="text-box">
+                                            <p><b>Adres: </b> <br> @item.adres</p>
+                                        </div><!-- /.text-box -->
+                                    </li>
+                                    <li>
+                                        <div class="icon_box">
+                                            <i class="fa fa-phone"></i>
+                                        </div><!-- /.icon-box -->
+                                        <div class="text-box">
+                                            <p><b>Tel: </b> <br> @item.tel</p>
+                                        </div><!-- /.text-box -->
+                                    </li>
+                                    <li>
+                                        <div class="icon_box">
+                                            <i class="fa fa-envelope"></i>
+                                        </div><!-- /.icon-box -->
+                                        <div class="text-box">
+                                            <p><b>E-Posta : </b> <br> @item.eposta</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Map Section-->
+<div class="map-section">
+    <div class="map-outer">
+        <!--Map Canvas-->
+        <iframe src="                @{
+
+            foreach (var item in db.iletisim.ToList())
+            { @item.HaritaURL } } "  height="450" style="border:0;" width="100%" loading="lazy"></iframe>
+
+    </div>
+</div>
+<!--End Map Section-->

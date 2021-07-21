@@ -1,0 +1,147 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Blog>
+
+
+@{
+    ViewBag.Title = "TumMakaleler";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+@if (TempData["Guncelle"] != null)
+{
+    <script>swal("İşlem Başarılı!", "Kayıt Güncellendi", "success");</script>}
+
+@if (TempData["Başarılı"] != null)
+{
+    <script>swal("İşlem Başarılı!", "Kayıt Silindi", "success");</script>}
+@if (TempData["Hata"] != null)
+{<script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+<div class="row" style="padding:5px">
+    <br />
+    <div class="col-12">
+        <div class=" card" style="padding:20px;">
+
+            <!-- /.card-header -->
+            <div class="card-header  table-responsive p-0">
+                <table id="tbl1" class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Sıra</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th>Yazar</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int i = 0;}
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@{i++;}@i</td>
+                                <td><a target="_blank" href="/Makale/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID">@x.Baslik</a></td>
+                                <td> @x.Tarih.Value.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    @if (@x.durum == 1)
+                                    {
+                                        <label style="color:green">Yayınlanmış</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color:red">Yayınlanmamış</label>
+                                    }
+
+                                </td>
+                                <td>@x.Kullanicilar.Ad</td>
+                                <td><a class="btn btn-warning text-dark" href="/Admin/BlogGetir/@x.BlogID">Düzenle</a></td>
+                                <td class="text-white"><a class="btn btn-danger" data-target="#silblog" onclick="JavaSend(@x.BlogID)">Sil</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+        function JavaSend(id){
+        var link ="/Admin/BlogSil/"+id;
+        $("#modalLink").attr("href", link);
+        $("#silblog").modal();
+        }
+</script>
+<!--Modal-->
+<div class="modal fade" id="silblog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#E55F4D; color:white; text-align:center">
+                <h3 class="modal-title" style="margin-top:5px;">Kayıt Silme Onayı</h3>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h3><span aria-hidden="true">&times;</span></h3>
+                    </button>*@
+            </div>
+            <div class="modal-body text-center">
+                <h5 style="font-weight:bold">Kayıt Silinecektir, Bu Kaydı Silmek İstediğinize Emin Misiniz ?</h5>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger pull-right" style="margin:5px" id="modalLink"> SİL</a>
+                <button type="button" style="margin:5px" class="btn btn-primary pull-right" data-dismiss="modal">Vazgeç</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script>
+        $('#tbl1').DataTable({
+
+
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty:      "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered:   "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copyTitle: "Panoya kopyalandı.",
+                    copySuccess:"Panoya %d satır kopyalandı",
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                },
+
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+
+            }
+
+
+
+
+
+        });
+</script>

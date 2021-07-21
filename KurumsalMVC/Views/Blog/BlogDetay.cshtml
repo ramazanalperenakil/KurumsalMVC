@@ -1,0 +1,117 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Blog>
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+@foreach (var t in Model)
+{
+    <title>@t.Baslik</title>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+</script>
+@foreach (var x in Model)
+{
+
+    <div class="sidebar-page-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <section class="blog-section padd-2">
+
+                        <div class="modal-title">
+                            <h1>@x.Baslik</h1><br />
+                        </div>
+                        <div class="img-box">
+
+                            <center> <a class="fancybox img-fluid" rel="group" href="~/uploads/makale/@x.Resim"><img src="~/uploads/makale/@x.Resim" height="500" alt="" /></a></center>
+
+
+                            @*<a href="~/uploads/makale/@x.Resim" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                                    <img src="~/uploads/makale/@x.Resim" width="72" height="72" alt="" />
+                                </a>*@
+
+                            @*<a href='~/uploads/makale/@x.Resim'>
+                                    <img class="img-fluid" src="~/uploads/makale/@x.Resim" />
+                                </a>*@
+
+
+                            @*<img src="~/uploads/makale/@x.Resim" alt="News">*@
+                        </div>
+                       
+                        <div class="lower-content">
+                            <hr />
+                            <div class="post-meta">
+                                <span><i class="fa fa-user"></i> @x.Kullanicilar.Ad @x.Kullanicilar.Soyad   </span>
+
+
+                                <span><i class="fa fa-calendar"></i> @x.Tarih.Value.ToString("dd/MM/yyyy")   </span>
+
+
+                                <span><i class="fa fa-eye"></i>@x.OkumaSayisi </span>
+
+
+
+
+
+                            </div>
+                            <hr />
+
+
+                            <div class="text" style="color:black">
+                                @MvcHtmlString.Create(x.Yazi.ToString())
+                            </div>
+                        </div><br />
+                        <div class="share-box clearfix">
+
+                            <div class="social-box pull-right">
+                                <span>Paylaş <i class="fa fa-share"></i></span>
+                                <ul class="list-inline social">
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=@HttpContext.Current.Request.Url.AbsoluteUri.ToString()"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri.ToString()"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://web.whatsapp.com/send?text=@HttpContext.Current.Request.Url.AbsoluteUri"><i class="fa fa-whatsapp"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+                    </section>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="blog-sidebar padd-4">
+
+                        @Html.Action("aramabirimi", "Ara")
+
+
+                        <!-- End of .sidebar_styleOne -->
+                        @Html.Action("Kategoriler", "Blog")
+                        <!-- End of .sidebar_categories -->
+
+                        <div class="popular_news sidebar-padd mar-1">
+                            <div class="inner-title">
+                                <h3>Popüler Yazılar</h3>
+                            </div>
+                            @Html.Action("Populer", "Blog")
+
+                        </div>
+
+
+                    </div> <!-- End of .wrapper -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+ 
+  
+
+

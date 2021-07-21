@@ -1,0 +1,92 @@
+﻿@model KurumsalMVC.Models.Entitiy.Kullanicilar
+@{
+    ViewBag.Title = "KullaniciEkle";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+<h2>KullaniciEkle</h2>
+
+@if (ViewBag.Success != null)
+{
+    <script> swal("İşlem Başarılı!", "Kayıt Eklendi", "success"); @*swal({icon: "success",title: "Kayıt Başarılı",})}*@ </script>}
+@if (ViewBag.Error != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+<script type="text/javascript">
+    function ResimGoster(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#imgprvw').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<div class="card card-primary">
+   
+
+    @using (Html.BeginForm("KullaniciEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="card-body">
+            @Html.LabelFor(x => x.Ad, "İsim")
+            @Html.TextBoxFor(x => x.Ad, new { required = "required", @class = "form-control"})
+
+            <br />
+            <label>Soyisim</label>
+            @Html.TextBoxFor(x => x.Soyad, new { required = "required", @class = "form-control" })
+            <br />
+            <label>E-Posta</label>
+            @Html.TextBoxFor(x => x.Eposta, new { required = "required", @class = "form-control" })
+            <br />
+
+            <label>Şifre</label>
+
+            @Html.TextBoxFor(x => x.sifre, new { required = "required", @class = "form-control" })
+            <br />
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Resim Yükle</label>
+                        <input type="file" onchange="ResimGoster(this)" name="BlogImage" required id="BlogImage" class="input-group form-control" />
+                        @*<label class="custom-file-label" for="exampleInputFile">Dosya Seçin</label>*@
+                        <br />
+                        
+                       
+                       
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Seçilen Resim</label><br />
+                        <img id="imgprvw" height="300" />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    }
+</div>

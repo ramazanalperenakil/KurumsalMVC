@@ -1,0 +1,54 @@
+﻿@model KurumsalMVC.Models.HomePageViewModel
+@using KurumsalMVC.Models.Entitiy
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+@Html.Action("SiteBilgi", "Default")
+
+
+
+
+
+<section class="portfolio portfolio-style-two padd-1">
+    <div class="container">
+
+        <!--Filter-->
+        <div class="filters clearfix filters-style-two">
+            <ul class="filter-tabs filter-btns">
+                <li class="filter active" data-role="button" data-filter="all"><span>All</span></li>
+
+                @foreach (var kat in Model.kat)
+                {
+                    <li class="filter" data-role="button" data-filter=".@kat.KategoriURL"><span>@kat.KategoriAd</span></li>
+                }
+
+
+            </ul>
+        </div>
+
+        <div class="row filter-list">
+
+            @foreach (var f in Model.proje)
+            {
+
+                <div class="projects-block-one mix all @f.ProjeKategoriler.KategoriURL col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box">
+                        <figure class="image">
+                            <img src="~/uploads/projeler/@f.Resim" height="300" width="300">
+                            <div class="overlay">
+                                <a href="/Proje/@seo1.AdresDuzenle(f.Baslik)-@f.ProjeID"><i class="fa fa-link"></i></a>
+                            </div>
+                        </figure>
+                        <div class="caption-title">
+                            <h3><a href="/Proje/@seo1.AdresDuzenle(f.Baslik)-@f.ProjeID">@f.Baslik</a></h3>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

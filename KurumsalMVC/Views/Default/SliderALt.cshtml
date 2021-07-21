@@ -1,0 +1,23 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Bilgi>
+
+
+@foreach (var x in Model)
+{
+
+    <div class="column icon-column col-md-4 col-sm-6 col-xs-12">
+        <div class="inner-box">
+            <div class="icon"><span class="flaticon-technology"></span></div>
+            <h3>@x.tel</h3>
+            <div class="text">@x.adres</div>
+        </div>
+    </div>
+    <!--Icon Column-->
+    <div class="column icon-column col-md-4 col-sm-6 col-xs-12">
+        <div class="inner-box">
+            <div class="icon"><span class="flaticon-circular-clock-tool"></span></div>
+            <h3>Çalışma Saatleri</h3>
+            <div class="text">@x.saat</div>
+        </div>
+    </div>
+}

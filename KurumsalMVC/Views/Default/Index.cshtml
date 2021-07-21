@@ -1,0 +1,98 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Slider>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+@Html.Action("SiteBilgi", "Default")
+
+<!--Start rev slider wrapper-->
+
+
+ 
+
+
+
+
+
+
+
+<section class="rev_slider_wrapper">
+        <div id="slider1" class="rev_slider" data-version="5.0">
+            <ul>
+                @foreach (var slider in Model)
+                {
+
+                    <li data-transition="slotzoom-horizontal">
+                        <a ><img src="~/uploads/slider/@slider.Resim" width="100%" height="700" alt="" /></a>
+                        @*<img src="~/uploads/projeler/galeri/@item.ResimURL">*@
+
+
+                    </li>
+
+
+                    @*<li data-transition="slotzoom-horizontal">
+                <img src="/uploads/slider/@slider.Resim" alt="" width="1920" height="700" >
+
+
+            </li>*@
+                }
+
+            </ul>
+        </div>
+    </section>
+<!--End rev slider wrapper-->
+<!--Call to Action-->
+<section class="call-to-action bg-1 padd-1">
+    <div class="container">
+        <div class="row clearfix">
+            <!--Icon Column-->
+            @Html.Action("SliderALt", "Default")
+
+            <!--Link Column-->
+            <div class="column link-column col-md-4 col-sm-6 col-xs-12">
+                <div class="link-btn5">
+                    <a href="/iletisim" class="btn-style-two">İletişime Geçin</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--Services Two-->
+<section class="services-two bg-1 padd-3">
+    <div class="container">
+        <div class="row clearfix">
+
+            <!--Default Service Block-->
+            @Html.Action("AnasayfaHizmet", "Default")
+            <!--Default Service Block / Active-->
+
+
+        </div>
+        <div class="sec-title center">
+            <a href="/Hizmetler"><h2 class="link-btn5 "><span>Tüm Hizmetlerimiz</span></h2></a>
+        </div>
+    </div>
+</section>
+
+
+
+<!--About Style One-->
+<section class="about-style-one">
+    <div class="outer-box clearfix">
+
+        @Html.Action("AnasayfaHakkimizda", "Default")
+    </div>
+</section>
+<!--About Style One-->
+<!--Projeler Başlangıç-->
+@Html.Action("AnasayfaProje", "Default")
+<!--Projeler bitiş-->
+<!--News Section-->
+@Html.Action("AnasayfaSonBlog", "Default")
+
+
+<!--News Section-->

@@ -1,0 +1,73 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Blog>
+@{
+    ViewBag.Title = "BlogAra";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+    <div class="sidebar-page-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <section class="news-section padd-2">
+                        <div class="row">
+                            @foreach (var x in Model)
+                            {
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <!--News Style One-->
+                                    <div class="news-style-one">
+                                        <div class="inner-box">
+                                            <div class="image">
+                                                <img src="~/uploads/projeler/@x.Resim" height="300" width="300" />
+                                                <div class="post-time">  @x.Tarih.Value.ToString("dd/MM/yyyy")</div>
+                                            </div>
+                                            <div class="lower-content">
+                                                <h3><a href="/Proje/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID">@x.Baslik</a></h3>
+                                                <div class="text">
+                                                    @if (x.Yazi.ToString().Length < 20)
+                                                    {
+                                                        @MvcHtmlString.Create(x.Yazi.ToString())
+                                                    }
+                                                    else
+                                                    {
+                                                        @MvcHtmlString.Create(x.Yazi.Substring(0, 50) + "...")}
+
+                                                </div>
+                                                <div class="link-btn2 center">
+                                                    <a href="/Proje/@seo1.AdresDuzenle(x.Baslik)-@x.BlogID" class="btn-style-two">Devamını Oku</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>}
+
+
+
+
+
+                        </div>
+
+                        <br>
+
+
+                    </section>
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="blog-sidebar padd-4">
+                        @Html.Action("aramabirimi", "Ara") <!-- End of .sidebar_styleOne -->
+
+
+                        @Html.Action("Kategoriler", "Blog")
+                        <!-- End of .sidebar_categories -->
+
+
+
+
+
+                    </div> <!-- End of .wrapper -->
+                </div>
+            </div>
+        </div>
+    </div>

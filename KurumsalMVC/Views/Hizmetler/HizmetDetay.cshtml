@@ -1,0 +1,60 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Hizmetler>
+@{
+    ViewBag.Title = "HizmetDetay";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+
+@foreach (var t in Model)
+{
+    <title>@t.HizmetAdi</title>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+</script>
+
+
+<section class="service-single">
+    <div class="container">
+        <div class="row">
+            @Html.Action("KategoriHizmet", "Hizmetler")
+
+            @foreach (var x in Model)
+            {
+
+                <div class="col-md-9">
+                    <div class="outer-box">
+                        <h1 class="text-center">@x.HizmetAdi</h1><br />
+                        <div class="video-column">
+                            <div class="video-image-box">
+                                <figure class="img-box">
+                                    <a class="fancybox" rel="group" href="~/uploads/hizmetler/@x.HizmetResim"><img src="~/uploads/hizmetler/@x.HizmetResim" style="width:100% !important;" alt="" /></a>
+                                    @*<img src="~/uploads/hizmetler/@x.HizmetResim" alt="">*@
+                                </figure>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="text">
+                            @MvcHtmlString.Create(x.Yazi.ToString())
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+

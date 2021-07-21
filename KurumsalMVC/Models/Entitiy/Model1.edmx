@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KurumsalMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bilgi">
+          <Key>
+            <PropertyRef Name="BilgiID" />
+          </Key>
+          <Property Name="BilgiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="eposta" Type="nvarchar(max)" />
+          <Property Name="CPR" Type="nvarchar(max)" />
+          <Property Name="face" Type="nvarchar" MaxLength="50" />
+          <Property Name="twit" Type="nvarchar" MaxLength="50" />
+          <Property Name="linkedin" Type="nvarchar" MaxLength="50" />
+          <Property Name="skyp" Type="nvarchar" MaxLength="50" />
+          <Property Name="adres" Type="nvarchar(max)" />
+          <Property Name="saat" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteBaslik" Type="nvarchar(max)" />
+          <Property Name="SiteAnahtar" Type="nvarchar(max)" />
+          <Property Name="SiteAciklama" Type="nvarchar(max)" />
+          <Property Name="SİteLogo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar(max)" />
+          <Property Name="Yazi" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Resim" Type="nvarchar(max)" />
+          <Property Name="Yazar" Type="int" />
+          <Property Name="OkumaSayisi" Type="int" />
+          <Property Name="durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Hakkimizda">
+          <Key>
+            <PropertyRef Name="HakkimizdaID" />
+          </Key>
+          <Property Name="HakkimizdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yazi" Type="nvarchar(max)" />
+          <Property Name="Resim" Type="nvarchar(max)" />
+          <Property Name="Baslik" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Hizmetler">
+          <Key>
+            <PropertyRef Name="HizmetID" />
+          </Key>
+          <Property Name="HizmetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HizmetAdi" Type="nvarchar(max)" />
+          <Property Name="HizmetResim" Type="nvarchar(max)" />
+          <Property Name="Yazi" Type="nvarchar(max)" />
+          <Property Name="durum" Type="int" />
+        </EntityType>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="iletisimID" />
+          </Key>
+          <Property Name="iletisimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HaritaURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Eposta" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+          <Property Name="kod" Type="nvarchar" MaxLength="50" />
+          <Property Name="foto" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProjeKategoriler">
+          <Key>
+            <PropertyRef Name="ProjeKatID" />
+          </Key>
+          <Property Name="ProjeKatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAd" Type="nvarchar(max)" />
+          <Property Name="KategoriURL" Type="nvarchar(max)" />
+          <Property Name="YaziSayisi" Type="int" />
+        </EntityType>
+        <EntityType Name="Projeler">
+          <Key>
+            <PropertyRef Name="ProjeID" />
+          </Key>
+          <Property Name="ProjeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar(max)" />
+          <Property Name="Yazi" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Resim" Type="nvarchar(max)" />
+          <Property Name="KategoriID" Type="int" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjeResimler">
+          <Key>
+            <PropertyRef Name="ResimID" />
+          </Key>
+          <Property Name="ResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResimURL" Type="nvarchar(max)" />
+          <Property Name="ProjeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resim" Type="nvarchar(max)" />
+          <Property Name="Hedef" Type="nvarchar(max)" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Blog_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="Yazar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projeler_ProjeKategoriler">
+          <End Role="ProjeKategoriler" Type="Self.ProjeKategoriler" Multiplicity="0..1" />
+          <End Role="Projeler" Type="Self.Projeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjeKategoriler">
+              <PropertyRef Name="ProjeKatID" />
+            </Principal>
+            <Dependent Role="Projeler">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjeResimler_Projeler">
+          <End Role="Projeler" Type="Self.Projeler" Multiplicity="0..1" />
+          <End Role="ProjeResimler" Type="Self.ProjeResimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeler">
+              <PropertyRef Name="ProjeID" />
+            </Principal>
+            <Dependent Role="ProjeResimler">
+              <PropertyRef Name="ProjeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KurumsalMVCModelStoreContainer">
+          <EntitySet Name="Bilgi" EntityType="Self.Bilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hakkimizda" EntityType="Self.Hakkimizda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hizmetler" EntityType="Self.Hizmetler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iletisim" EntityType="Self.iletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjeKategoriler" EntityType="Self.ProjeKategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projeler" EntityType="Self.Projeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjeResimler" EntityType="Self.ProjeResimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Blog_Kullanicilar" Association="Self.FK_Blog_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projeler_ProjeKategoriler" Association="Self.FK_Projeler_ProjeKategoriler">
+            <End Role="ProjeKategoriler" EntitySet="ProjeKategoriler" />
+            <End Role="Projeler" EntitySet="Projeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjeResimler_Projeler" Association="Self.FK_ProjeResimler_Projeler">
+            <End Role="Projeler" EntitySet="Projeler" />
+            <End Role="ProjeResimler" EntitySet="ProjeResimler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KurumsalMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bilgi">
+          <Key>
+            <PropertyRef Name="BilgiID" />
+          </Key>
+          <Property Name="BilgiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="face" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="twit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="skyp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="saat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAnahtar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SİteLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yazar" Type="Int32" />
+          <Property Name="OkumaSayisi" Type="Int32" />
+          <Property Name="durum" Type="Int32" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK_Blog_Kullanicilar" FromRole="Blog" ToRole="Kullanicilar" />
+        </EntityType>
+        <EntityType Name="Hakkimizda">
+          <Key>
+            <PropertyRef Name="HakkimizdaID" />
+          </Key>
+          <Property Name="HakkimizdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hizmetler">
+          <Key>
+            <PropertyRef Name="HizmetID" />
+          </Key>
+          <Property Name="HizmetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HizmetAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HizmetResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="iletisimID" />
+          </Key>
+          <Property Name="iletisimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HaritaURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_Blog_Kullanicilar" FromRole="Kullanicilar" ToRole="Blog" />
+        </EntityType>
+        <EntityType Name="ProjeKategoriler">
+          <Key>
+            <PropertyRef Name="ProjeKatID" />
+          </Key>
+          <Property Name="ProjeKatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KategoriURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YaziSayisi" Type="Int32" />
+          <NavigationProperty Name="Projeler" Relationship="Self.FK_Projeler_ProjeKategoriler" FromRole="ProjeKategoriler" ToRole="Projeler" />
+        </EntityType>
+        <EntityType Name="Projeler">
+          <Key>
+            <PropertyRef Name="ProjeID" />
+          </Key>
+          <Property Name="ProjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KategoriID" Type="Int32" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="ProjeKategoriler" Relationship="Self.FK_Projeler_ProjeKategoriler" FromRole="Projeler" ToRole="ProjeKategoriler" />
+          <NavigationProperty Name="ProjeResimler" Relationship="Self.FK_ProjeResimler_Projeler" FromRole="Projeler" ToRole="ProjeResimler" />
+        </EntityType>
+        <EntityType Name="ProjeResimler">
+          <Key>
+            <PropertyRef Name="ResimID" />
+          </Key>
+          <Property Name="ResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResimURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjeID" Type="Int32" />
+          <NavigationProperty Name="Projeler" Relationship="Self.FK_ProjeResimler_Projeler" FromRole="ProjeResimler" ToRole="Projeler" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hedef" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Blog_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="Yazar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projeler_ProjeKategoriler">
+          <End Role="ProjeKategoriler" Type="Self.ProjeKategoriler" Multiplicity="0..1" />
+          <End Role="Projeler" Type="Self.Projeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjeKategoriler">
+              <PropertyRef Name="ProjeKatID" />
+            </Principal>
+            <Dependent Role="Projeler">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjeResimler_Projeler">
+          <End Role="Projeler" Type="Self.Projeler" Multiplicity="0..1" />
+          <End Role="ProjeResimler" Type="Self.ProjeResimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeler">
+              <PropertyRef Name="ProjeID" />
+            </Principal>
+            <Dependent Role="ProjeResimler">
+              <PropertyRef Name="ProjeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KurumsalMVCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bilgi" EntityType="Self.Bilgi" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" />
+          <EntitySet Name="Hakkimizda" EntityType="Self.Hakkimizda" />
+          <EntitySet Name="Hizmetler" EntityType="Self.Hizmetler" />
+          <EntitySet Name="iletisim" EntityType="Self.iletisim" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="ProjeKategoriler" EntityType="Self.ProjeKategoriler" />
+          <EntitySet Name="Projeler" EntityType="Self.Projeler" />
+          <EntitySet Name="ProjeResimler" EntityType="Self.ProjeResimler" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Blog_Kullanicilar" Association="Self.FK_Blog_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projeler_ProjeKategoriler" Association="Self.FK_Projeler_ProjeKategoriler">
+            <End Role="ProjeKategoriler" EntitySet="ProjeKategoriler" />
+            <End Role="Projeler" EntitySet="Projeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjeResimler_Projeler" Association="Self.FK_ProjeResimler_Projeler">
+            <End Role="Projeler" EntitySet="Projeler" />
+            <End Role="ProjeResimler" EntitySet="ProjeResimler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KurumsalMVCModelStoreContainer" CdmEntityContainer="KurumsalMVCEntities">
+          <EntitySetMapping Name="Bilgi">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Bilgi">
+              <MappingFragment StoreEntitySet="Bilgi">
+                <ScalarProperty Name="BilgiID" ColumnName="BilgiID" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="CPR" ColumnName="CPR" />
+                <ScalarProperty Name="face" ColumnName="face" />
+                <ScalarProperty Name="twit" ColumnName="twit" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="skyp" ColumnName="skyp" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="saat" ColumnName="saat" />
+                <ScalarProperty Name="SiteBaslik" ColumnName="SiteBaslik" />
+                <ScalarProperty Name="SiteAnahtar" ColumnName="SiteAnahtar" />
+                <ScalarProperty Name="SiteAciklama" ColumnName="SiteAciklama" />
+                <ScalarProperty Name="SİteLogo" ColumnName="SİteLogo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="OkumaSayisi" ColumnName="OkumaSayisi" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hakkimizda">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Hakkimizda">
+              <MappingFragment StoreEntitySet="Hakkimizda">
+                <ScalarProperty Name="HakkimizdaID" ColumnName="HakkimizdaID" />
+                <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hizmetler">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Hizmetler">
+              <MappingFragment StoreEntitySet="Hizmetler">
+                <ScalarProperty Name="HizmetID" ColumnName="HizmetID" />
+                <ScalarProperty Name="HizmetAdi" ColumnName="HizmetAdi" />
+                <ScalarProperty Name="HizmetResim" ColumnName="HizmetResim" />
+                <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iletisim">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.iletisim">
+              <MappingFragment StoreEntitySet="iletisim">
+                <ScalarProperty Name="iletisimID" ColumnName="iletisimID" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="HaritaURL" ColumnName="HaritaURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjeKategoriler">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.ProjeKategoriler">
+              <MappingFragment StoreEntitySet="ProjeKategoriler">
+                <ScalarProperty Name="ProjeKatID" ColumnName="ProjeKatID" />
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="KategoriURL" ColumnName="KategoriURL" />
+                <ScalarProperty Name="YaziSayisi" ColumnName="YaziSayisi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projeler">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Projeler">
+              <MappingFragment StoreEntitySet="Projeler">
+                <ScalarProperty Name="ProjeID" ColumnName="ProjeID" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjeResimler">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.ProjeResimler">
+              <MappingFragment StoreEntitySet="ProjeResimler">
+                <ScalarProperty Name="ResimID" ColumnName="ResimID" />
+                <ScalarProperty Name="ResimURL" ColumnName="ResimURL" />
+                <ScalarProperty Name="ProjeID" ColumnName="ProjeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Hedef" ColumnName="Hedef" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KurumsalMVCModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

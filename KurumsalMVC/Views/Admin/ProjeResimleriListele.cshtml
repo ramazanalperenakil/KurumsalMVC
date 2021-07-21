@@ -1,0 +1,46 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<ProjeResimler> 
+        
+<div class="row" style="padding:5px">
+<br />
+<div class="col-12">
+    <div class=" card" style="padding:20px;">
+
+        <!-- /.card-header -->
+        <div class="card-header  table-responsive p-0">
+            <table id="tbl1" class="table table-hover text-nowrap">
+                <thead>
+                    <tr>
+                        <th>Sıra</th>
+                        <th>Başlık</th>
+                        
+                        
+
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 0;}
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@{i++;}@i</td>
+                            <td>@x.Projeler.Baslik</td>
+                             
+
+                            
+
+                            <td><a class="btn btn-warning text-dark" href="/Admin/ProjeGaleriDuzenle/@x.ProjeID">Düzenle</a></td>
+                            <td class="text-white"><a class="btn btn-danger" data-target="#silblog" onclick="JavaSend(@x.ProjeID)">Sil</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+</div>

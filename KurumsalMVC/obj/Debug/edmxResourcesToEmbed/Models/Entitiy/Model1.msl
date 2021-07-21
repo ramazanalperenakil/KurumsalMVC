@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KurumsalMVCModelStoreContainer" CdmEntityContainer="KurumsalMVCEntities">
+    <EntitySetMapping Name="Bilgi">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Bilgi">
+        <MappingFragment StoreEntitySet="Bilgi">
+          <ScalarProperty Name="BilgiID" ColumnName="BilgiID" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="CPR" ColumnName="CPR" />
+          <ScalarProperty Name="face" ColumnName="face" />
+          <ScalarProperty Name="twit" ColumnName="twit" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="skyp" ColumnName="skyp" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="saat" ColumnName="saat" />
+          <ScalarProperty Name="SiteBaslik" ColumnName="SiteBaslik" />
+          <ScalarProperty Name="SiteAnahtar" ColumnName="SiteAnahtar" />
+          <ScalarProperty Name="SiteAciklama" ColumnName="SiteAciklama" />
+          <ScalarProperty Name="SİteLogo" ColumnName="SİteLogo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blog">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+          <ScalarProperty Name="OkumaSayisi" ColumnName="OkumaSayisi" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hakkimizda">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Hakkimizda">
+        <MappingFragment StoreEntitySet="Hakkimizda">
+          <ScalarProperty Name="HakkimizdaID" ColumnName="HakkimizdaID" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hizmetler">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Hizmetler">
+        <MappingFragment StoreEntitySet="Hizmetler">
+          <ScalarProperty Name="HizmetID" ColumnName="HizmetID" />
+          <ScalarProperty Name="HizmetAdi" ColumnName="HizmetAdi" />
+          <ScalarProperty Name="HizmetResim" ColumnName="HizmetResim" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iletisim">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.iletisim">
+        <MappingFragment StoreEntitySet="iletisim">
+          <ScalarProperty Name="iletisimID" ColumnName="iletisimID" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="HaritaURL" ColumnName="HaritaURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjeKategoriler">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.ProjeKategoriler">
+        <MappingFragment StoreEntitySet="ProjeKategoriler">
+          <ScalarProperty Name="ProjeKatID" ColumnName="ProjeKatID" />
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="KategoriURL" ColumnName="KategoriURL" />
+          <ScalarProperty Name="YaziSayisi" ColumnName="YaziSayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projeler">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Projeler">
+        <MappingFragment StoreEntitySet="Projeler">
+          <ScalarProperty Name="ProjeID" ColumnName="ProjeID" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjeResimler">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.ProjeResimler">
+        <MappingFragment StoreEntitySet="ProjeResimler">
+          <ScalarProperty Name="ResimID" ColumnName="ResimID" />
+          <ScalarProperty Name="ResimURL" ColumnName="ResimURL" />
+          <ScalarProperty Name="ProjeID" ColumnName="ProjeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slider">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="Hedef" ColumnName="Hedef" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="KurumsalMVCModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

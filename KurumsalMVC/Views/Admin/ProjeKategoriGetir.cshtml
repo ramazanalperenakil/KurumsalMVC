@@ -1,0 +1,44 @@
+﻿@model KurumsalMVC.Models.Entitiy.ProjeKategoriler
+@{
+    ViewBag.Title = "ProjeKategoriGetir";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+
+@if (ViewBag.Success != null)
+{
+    <script> swal("İşlem Başarılı!", "Kayıt Eklendi", "success"); @*swal({icon: "success",title: "Kayıt Başarılı",})}*@ </script>}
+@if (ViewBag.Error != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+<h2>Kategori Güncelleme Sayfası</h2>
+
+<br />
+
+@using (Html.BeginForm("KatGuncelle", "Admin", FormMethod.Post))
+
+{
+
+    <div style="display:none">
+        @Html.LabelFor(x => x.ProjeKatID, "Kategori ID")
+        @Html.TextBoxFor(x => x.ProjeKatID, new { @class = "form-control" })
+    </div>
+
+
+    
+    @Html.LabelFor(x => x.KategoriAd, "Kategori Adı")
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+
+
+
+
+
+
+
+    <br />
+    <button class="btn btn-success" style="width:100%" id="ekle">Güncelle</button>
+}
+
+
+
+

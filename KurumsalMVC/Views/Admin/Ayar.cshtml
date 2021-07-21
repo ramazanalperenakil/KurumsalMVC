@@ -1,0 +1,158 @@
+﻿@model KurumsalMVC.Models.Entitiy.Bilgi
+@{
+    ViewBag.Title = "Ayar";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+
+@if (TempData["Başarılı"] != null)
+{
+    <script>swal("İşlem Başarılı!", "Kayıt Güncellendi", "success");</script>
+}
+@if (TempData["Hata"] != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+
+<h2>İletişim Sayfası Düzenle </h2>
+
+<br />
+
+@using (Html.BeginForm("AyarGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    <div style="display:none">
+        @Html.LabelFor(x => x.BilgiID, "Kategori ID")
+        @Html.TextBoxFor(x => x.BilgiID, new { @class = "form-control" })
+    </div>
+
+    @Html.LabelFor(x => x.tel, "Telefon")
+    @Html.TextAreaFor(x => x.tel, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.eposta, "E-Posta")
+    @Html.TextAreaFor(x => x.eposta, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.CPR, "CPR Yazısı")
+    @Html.TextAreaFor(x => x.CPR, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.face, "Facebook")
+    @Html.TextAreaFor(x => x.face, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.twit, "Twitter")
+    @Html.TextAreaFor(x => x.twit, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+    @Html.LabelFor(x => x.linkedin, "Linkedin")
+    @Html.TextAreaFor(x => x.linkedin, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+    @Html.LabelFor(x => x.skyp, "Skype")
+    @Html.TextAreaFor(x => x.skyp, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.adres, "Adres")
+    @Html.TextAreaFor(x => x.adres, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+    @Html.LabelFor(x => x.saat, "Çalışma Saati")
+    @Html.TextAreaFor(x => x.saat, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+    @Html.LabelFor(x => x.SiteBaslik, "Site Başlık")
+    @Html.TextAreaFor(x => x.SiteBaslik, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.SiteAciklama, "Site Açıklama")
+    @Html.TextAreaFor(x => x.SiteAciklama, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.SiteAnahtar, "Site Anahtar Kelimeler")
+    @Html.TextAreaFor(x => x.SiteAnahtar, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+
+    <br />
+    <div class="social-box">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 col-xs-12 text-center">
+                    <div class="box">
+                        <label for="photo">Resmi Değiştir:</label><br />
+                        <input type="file" onchange="ResimGoster(this)" name="BlogImage" id="BlogImage" />
+
+                        <img id="etResim" height="300" />
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-xs-12  text-center">
+                    <div class="box">
+
+                        <label>Kayıtlı Resim</label><br />
+                        <img id="KayitliResim" style="margin-top:5px" src="~/uploads/@Model.SİteLogo" height="300"  class="img-fluid" />
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <br />
+    <button class="btn btn-success" style="width:100%" id="ekle">Güncelle</button>
+}
+
+<script type="text/javascript">
+    function ResimGoster(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#etResim').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+
+

@@ -1,0 +1,30 @@
+﻿
+@using KurumsalMVC.Models.Entitiy
+@model List<ProjeKategoriler>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="category-style-one sidebar-padd mar-1">
+    <div class="inner-title">
+        <h3>Proje Kategorileri</h3>
+    </div>
+    <ul class="list">
+
+        @foreach (var x in Model)
+        {
+            <li><a href="/Kategori/@x.KategoriURL-@x.ProjeKatID" class="clearfix"><span class="float_left">@x.KategoriAd </span></a></li>
+        }
+
+
+    </ul>
+</div>

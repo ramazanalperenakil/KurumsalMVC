@@ -1,0 +1,30 @@
+﻿
+
+
+@using KurumsalMVC.Models.Entitiy
+@model List<Hizmetler>
+
+
+
+
+
+<div class="col-md-3">
+
+    <div class="service-sidebar">
+        <ul class="service-catergory">
+
+            @foreach (var x in Model)
+            {
+                <li><a href="/Hizmet/@seo1.AdresDuzenle(x.HizmetAdi)-@x.HizmetID">@x.HizmetAdi</a> <span class="view-all-icon fa fa-caret-right"></span></li>
+            }
+
+
+
+        </ul>
+        
+
+        
+
+
+    </div>
+</div>

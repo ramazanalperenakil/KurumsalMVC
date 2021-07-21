@@ -1,0 +1,45 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Hakkimizda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+    </script>
+@Html.Action("SiteBilgi", "Default")
+<br />
+<!--Start who we are-->
+@foreach (var x in Model)
+{
+    
+    <section class="who-we-are-area  ">
+        <div class="container">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color:white">
+                <div class="padd-2">
+                    <div class="sec-title ">
+                        <h2>@x.Baslik</h2>
+                    </div>
+                    <div class="image-box">
+
+                        <p class="text-center"><img src="uploads/@x.Resim" style="align-content:center" class="img-fluid"/></p>
+                    </div><br />
+                    <div class="text">
+                        @MvcHtmlString.Create(x.Yazi.ToString())
+                    </div>
+                    <br />
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+<!--End who we are -->

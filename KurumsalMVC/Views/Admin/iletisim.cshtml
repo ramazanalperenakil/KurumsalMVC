@@ -1,0 +1,53 @@
+﻿@model KurumsalMVC.Models.Entitiy.iletisim
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+
+ 
+@if (TempData["Başarılı"] != null)
+{
+    <script>swal("İşlem Başarılı!", "Kayıt Güncellendi", "success");</script>
+ }
+@if (TempData["Hata"] != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+
+<h2>İletişim Sayfası Düzenle </h2>
+
+<br />
+
+@using (Html.BeginForm("İletisimGuncelle", "Admin", FormMethod.Post))
+
+{
+    <div style="display:none">
+        @Html.LabelFor(x => x.iletisimID, "Kategori ID")
+        @Html.TextBoxFor(x => x.iletisimID, new { @class = "form-control" })
+    </div>
+
+    @Html.LabelFor(x => x.Baslik, "Başlık")
+    @Html.TextAreaFor(x => x.Baslik, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.HaritaURL, "Harita URL")
+    @Html.TextAreaFor(x => x.HaritaURL, new { required = "required", @class = "form-control", id = "baslikseo" })
+
+
+
+
+
+
+
+
+
+    <br />
+    <button class="btn btn-success" style="width:100%" id="ekle">Güncelle</button>
+}
+
+
+
+
+

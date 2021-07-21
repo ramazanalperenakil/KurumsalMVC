@@ -1,0 +1,450 @@
+﻿@using KurumsalMVC.Models.Entitiy;
+@using System.Web;
+@using System.Web.Mvc;
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <link rel="stylesheet" href="~/thema/css/style.css">
+    <link rel="stylesheet" href="~/thema/css/responsive.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/thema/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="~/thema/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/thema/images/favicon/favicon-16x16.png" sizes="16x16">
+
+</head>
+<body>
+
+    <div class="boxed_wrapper">
+
+        <header class="top-bar">
+            <div class="container">
+                <div class="clearfix">
+                    <ul class="top-bar-text float_left">
+
+                        @*<li><i class="flaticon-telephone"></i>.tel</li>
+                        <li><i class="flaticon-envelope">s.eposta</i></li>*@
+
+
+                        @{
+                            KurumsalMVCEntities db = new KurumsalMVCEntities();
+                            foreach (var item in db.Bilgi.ToList())
+                            {
+                                <li><i class="flaticon-telephone"></i>@item.tel</li>
+                                <li>
+                                    <i class="flaticon-envelope">
+                                        &nbsp;
+                                        @item.eposta
+                                    </i>
+                                </li>
+
+
+                            }
+                        }
+
+
+
+                    </ul>
+                    <ul class="social-style-one float_right">
+
+                        @{
+
+                            foreach (var item in db.Bilgi.ToList())
+                            {
+                                <li><a href="https://www.facebook.com/@item.face"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.twitter.com/@item.twit"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/@item.skyp"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
+
+
+                            }
+                        }
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+
+        <section class="mainmenu-area stricky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="main-logo">
+
+                            @{
+
+                                foreach (var item in db.Bilgi.ToList())
+                                {
+                                    <a href="/"><img src="/uploads/@item.SİteLogo" alt=""></a>
+
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 menu-column">
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+
+                                    <li class="">
+                                        <a href="/Anasayfa">Anasayfa</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Hakkimizda">Hakkımızda</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Projeler">Projeler</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Hizmetler">Hizmetler</a>
+
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="/Makaleler">Blog</a>
+
+                                    </li>
+
+                                    <li><a href="/iletisim">İletişim</a></li>
+                                </ul>
+
+                                <ul class="mobile-menu clearfix">
+                                    <li class="">
+                                        <a href="/Anasayfa">Anasayfa</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Hakkimizda">Hakkımızda</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Projeler">Projeler</a>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/Hizmetler">Hizmetler</a>
+
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="/Makaleler">Blog</a>
+
+                                    </li>
+
+                                    <li><a href="/iletisim">İletişim</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+        @RenderBody()
+
+
+        <footer class="main-footer">
+
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="container">
+                    <div class="row">
+                        <!--Big Column-->
+                        <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+
+                                    <div class="footer-widget about-widget">
+                                        @{
+
+                                            foreach (var logo in db.Bilgi.ToList())
+                                            {
+
+                                                <figure class="footer-logo"><img src="/uploads/@logo.SİteLogo" alt=""></figure>
+                                            } }
+
+                                        @{
+
+                                            foreach (var item in db.Hakkimizda.ToList())
+                                            {
+                                                <div class="widget-content">
+                                                    <div class="text">
+                                                        <p>
+                                                            @if (item.Yazi.ToString().Length < 20)
+                                                            {
+                                                                @MvcHtmlString.Create(item.Yazi.ToString())
+                                                            }
+                                                            else
+                                                            {
+                                                                @MvcHtmlString.Create(item.Yazi.Substring(0, 150) + "...")
+
+                                                            }
+                                                        </p>
+                                                    </div>
+
+
+                                                </div>
+                                            }
+                                        }
+
+                                        @{
+
+                                            foreach (var social in db.Bilgi.ToList())
+                                            {
+                                                <ul class="social">
+
+                                                    <li><a href="https://www.facebook.com/@social.face"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="https://www.twitter.com/@social.twit"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="https://www.instagram.com/@social.skyp"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                </ul>
+                                            }
+                                        }
+
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                    <div class="footer-widget service-widget">
+                                        <div class="section-title">
+                                            <h3>Hİzmetler</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="list">
+                                                @{
+
+                                                    foreach (var hizmet in db.Hizmetler.Where(x => x.durum == 1).Take(6).ToList())
+                                                    {
+                                                        <li><a href="/Hizmet/@seo1.AdresDuzenle(hizmet.HizmetAdi)-@hizmet.HizmetID"> @hizmet.HizmetAdi</a></li>
+                                                    }
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--Big Column-->
+                        <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                    <div class="footer-widget links-widget">
+                                        <div class="section-title">
+                                            <h3>Son Projeler</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="list">
+                                                @{
+
+                                                    foreach (var proje in db.Projeler.Where(x => x.Durum == 1).Take(6).ToList())
+                                                    {
+                                                        <li><a href="/Proje/@seo1.AdresDuzenle(proje.Baslik)-@proje.ProjeID"> @proje.Baslik</a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                    <div class="footer-widget contact-widget">
+                                        <div class="section-title">
+                                            <h3>İletİşİm</h3>
+                                        </div>
+
+                                        <div class="footer-widget gallery-widget">
+                                            <div class="row clearfix">
+                                                @{
+
+                                                    foreach (var iletisim in db.Bilgi.ToList())
+                                                    {
+                                                        <div class="default-cinfo" style="margin-left:10px !important">
+
+                                                            <div class="acc-content collapsed">
+                                                                <ul class="contact-infos">
+                                                                    <li>
+                                                                        <div class="icon_box">
+                                                                            <i class="fa fa-map-marker"></i>
+                                                                        </div><!-- /.icon-box -->
+                                                                        <div class="text-box">
+                                                                            <p><b>Adres: </b> <br> @iletisim.adres</p>
+                                                                        </div><!-- /.text-box -->
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="icon_box">
+                                                                            <i class="fa fa-phone"></i>
+                                                                        </div><!-- /.icon-box -->
+                                                                        <div class="text-box">
+                                                                            <p><b>Tel: </b> <br> @iletisim.tel</p>
+                                                                        </div><!-- /.text-box -->
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="icon_box">
+                                                                            <i class="fa fa-envelope"></i>
+                                                                        </div><!-- /.icon-box -->
+                                                                        <div class="text-box">
+                                                                            <p><b>E-Posta : </b> <br> @iletisim.eposta</p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+
+                                                        </div>
+                                                    }
+                                                }
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="pull-left copy-text">
+                        @{
+
+                            foreach (var cpr in db.Bilgi.ToList())
+                            {
+                                <p>Copyrights © @DateTime.Now.Year @cpr.CPR</p>}
+                        }
+
+                    </div><!-- /.pull-right -->
+                    <div class="pull-right get-text">
+                        <h6>Bu Site Asp.Net MVC Öğrenme Amaçlı <a href="http://www.ramazanalperenakil.com" target="_blank">Ramazan Alperen AKIL</a> Tarafından Kodlanmıştır</h6>
+                    </div><!-- /.pull-left -->
+                </div><!-- /.container -->
+            </div>
+
+        </footer>
+
+        <!-- Scroll Top Button -->
+        <button class="scroll-top tran3s color2_bg">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <!-- pre loader  -->
+        @*<div class="preloader"></div>*@
+
+
+        <!-- jQuery js -->
+        <script src="~/thema/js/jquery.js"></script>
+        <!-- bootstrap js -->
+        <script src="~/thema/js/bootstrap.min.js"></script>
+        <!-- jQuery ui js -->
+        <script src="~/thema/js/jquery-ui.js"></script>
+        <!-- owl carousel js -->
+        <script src="~/thema/js/owl.carousel.min.js"></script>
+        <!-- jQuery validation -->
+        <script src="~/thema/js/jquery.validate.min.js"></script>
+        <!-- google map -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRvBPo3-t31YFk588DpMYS6EqKf-oGBSI"></script>
+        <script src="~/thema/js/gmap.js"></script>
+        <!-- mixit up -->
+        <script src="~/thema/js/wow.js"></script>
+        <script src="~/thema/js/jquery.mixitup.min.js"></script>
+        <script src="~/thema/js/jquery.fitvids.js"></script>
+        <script src="~/thema/js/bootstrap-select.min.js"></script>
+
+        <!-- revolution slider js -->
+        <script src="~/thema/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="~/thema/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="~/thema/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+        <!-- fancy box -->
+        <script src="~/thema/js/jquery.fancybox.pack.js"></script>
+        <script src="~/thema/js/jquery.polyglot.language.switcher.js"></script>
+        <script src="~/thema/js/nouislider.js"></script>
+        <script src="~/thema/js/jquery.bootstrap-touchspin.js"></script>
+        <script src="~/thema/js/SmoothScroll.js"></script>
+        <script src="~/thema/js/jquery.appear.js"></script>
+        <script src="~/thema/js/jquery.countTo.js"></script>
+        <script src="~/thema/js/jquery.flexslider.js"></script>
+        <script src="~/thema/js/imagezoom.js"></script>
+        <script id="map-script" src="~/thema/js/default-map.js"></script>
+        <script src="~/thema/js/custom.js"></script>
+        <link href="~/Content/jquery.fancybox-buttons.css" rel="stylesheet" />
+        <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet" />
+        <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery.fancybox-buttons.js"></script>
+        <script src="~/Scripts/jquery.fancybox-media.js"></script>
+        <script src="~/Scripts/jquery.fancybox-thumbs.js"></script>
+        <script src="~/Scripts/jquery.fancybox.js"></script>
+        <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+
+
+    </div>
+
+</body>
+</html>

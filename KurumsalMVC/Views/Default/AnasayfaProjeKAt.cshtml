@@ -1,0 +1,12 @@
+﻿
+@using KurumsalMVC.Models.Entitiy
+@model List<ProjeKategoriler>
+
+
+
+
+
+@foreach (var x in Model)
+{
+    <li class="filter " data-role="button" data-filter="@x.ProjeKatID"><span>@x.KategoriAd</span></li>
+}

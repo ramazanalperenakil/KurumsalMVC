@@ -1,0 +1,35 @@
+﻿@model KurumsalMVC.Models.Entitiy.ProjeKategoriler
+
+
+@{
+    ViewBag.Title = "ProjeKategoriler";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+
+<button type="button" class="btn btn-primary btn-group-lg" style="margin-left:5px; width:100%" data-toggle="modal" data-target="#Modal1">Yeni Kategori Ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Kategori Ekranı</h2>
+            </div>
+            <form method="post" action="/Admin/ProjeKategoriler/">
+                <div class="modal-body">
+                    <label>Kategori  Adı</label>
+                    @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control" })
+                    <br />
+
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<br />
+
+
+
+@Html.Action("KategoriListele", "Admin")

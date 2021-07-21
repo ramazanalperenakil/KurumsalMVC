@@ -1,0 +1,52 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Hizmetler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+@Html.Action("SiteBilgi", "Default")
+
+
+<!--Services Style One-->
+<section class="services-style-one padd-1 bg-2">
+    <div class="container">
+
+        <div class="box">
+            <h3 class="section-title text-center">Hizmetlerimiz</h3>
+        </div><!-- /.box --><br />
+
+
+        <div class="row clearfix">
+
+            @foreach (var x in Model)
+            {
+                <div class="column col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="service-block wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <img src="~/uploads/hizmetler/@x.HizmetResim" height="300" width="300" />
+                                <div class="caption">@x.HizmetAdi</div>
+                                <div class="overlay-box">
+                                    <h3>@x.HizmetAdi</h3>
+                                    <div class="text">
+                                        @if (x.Yazi.ToString().Length < 20)
+                                        {
+                                            @MvcHtmlString.Create(x.Yazi.ToString())
+                                        }
+                                        else
+                                        {
+                                            @MvcHtmlString.Create(x.Yazi.Substring(0, 150) + "...")
+
+                                        }
+                                    </div>
+                                    <a class="btn-style-three" href="Hizmet/@seo1.AdresDuzenle(x.HizmetAdi)-@x.HizmetID"> Devamını Oku <span class="fa fa-angle-double-right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,34 @@
+﻿@using KurumsalMVC.Models.Entitiy
+
+@model List<Hizmetler>
+
+
+@foreach (var x in Model)
+{
+
+
+
+    <div class="default-service-block active col-md-4 col-sm-6 col-xs-12">
+        <div class="inner-box">
+            <div class="icon"> </div>
+            <h3><a href="Hizmet/@seo1.AdresDuzenle(x.HizmetAdi)-@x.HizmetID">@x.HizmetAdi</a></h3>
+            <div class="text">
+
+                @if (x.Yazi.ToString().Length < 20)
+                {
+                    @MvcHtmlString.Create(x.Yazi.ToString())
+                }
+                else
+                {
+                    @MvcHtmlString.Create(x.Yazi.Substring(0, 150) + "...")
+
+                }
+
+            </div>
+
+            <div class="link-btn">
+                <a href="Hizmet/@seo1.AdresDuzenle(x.HizmetAdi)-@x.HizmetID" class="btn-style-three dark">Devamını Oku</a>
+            </div>
+        </div>
+    </div>
+}

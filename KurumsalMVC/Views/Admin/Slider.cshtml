@@ -1,0 +1,80 @@
+﻿@using KurumsalMVC.Models.Entitiy
+@model List<Slider>
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+}
+
+@if (ViewBag.Success != null)
+{
+    <script> swal("İşlem Başarılı!", "Kayıt Eklendi", "success"); @*swal({icon: "success",title: "Kayıt Başarılı",})}*@ </script>}
+@if (ViewBag.Error != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+
+
+<script type="text/javascript">
+    function ResimGoster(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#imgprvw').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+/**/</script>
+
+<button type="button" class="btn btn-primary btn-group-lg" style="margin-left:5px; width:100%" data-toggle="modal" data-target="#Modal1">Yeni Slider Ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Slider Ekle</h2>
+            </div>
+            @using (Html.BeginForm("SliderEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="card-body">
+
+
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- textarea -->
+                            <div class="form-group">
+                                <label>Resim Yükle</label>
+                                <input type="file" onchange="ResimGoster(this)" name="BlogImage" required id="BlogImage" class="input-group form-control" />
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Seçilen Resim</label><br />
+                        <img id="imgprvw" height="300" width="100%" />
+                    </div>
+                </div>
+
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<br />
+
+
+
+
+@Html.Action("SliderListele", "Admin")
